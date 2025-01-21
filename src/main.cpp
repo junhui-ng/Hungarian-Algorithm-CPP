@@ -77,5 +77,27 @@ int main() {
     std::cout << std::endl;
     assignment.clear();
 
+    // Case 4 : Maximize cost
+    std::vector<std::vector<float>> cost_matrix4 = {
+        {7.8f, 2.1f, 7.7f},
+        {1.8f, 9.3f, 7.1f},
+        {9.2f, 7.0f, 6.6f},
+    };
+    cost = hungarian(cost_matrix4, true, assignment);
+    std::cout << "Cost: " << cost << std::endl;
+    for (int i = 0; i < assignment.size(); ++i)
+    {
+        if (assignment[i] == -1)
+        {
+            std::cout << "Row " << i << " is not assigned to any column" << std::endl;
+        }
+        else
+        {
+            std::cout << "Row " << i << " matched with column " << assignment[i] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+    assignment.clear();
+
     return 0;
 }

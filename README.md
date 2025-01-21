@@ -1,4 +1,4 @@
-# Kuhn-Munkres Algorithm (Hungarian Algorithm) Implementation in C++
+# Kuhn-Munkres (Hungarian) Algorithm Implementation in C++
 
 This repository implements the [Kuhn-Munkres algorithm](https://brilliant.org/wiki/hungarian-matching/) in C++.
 

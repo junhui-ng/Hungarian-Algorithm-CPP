@@ -20,6 +20,21 @@ void printMatrix(const std::vector<std::vector<T>>& matrix)
 }
 
 /**
+ * @brief Find the global maximum of a matrix 
+ * @param matrix Matrix
+ * @return Global maximum of the matrix
+ */
+template <typename T>
+T globalMaximum(std::vector<std::vector<T>>& matrix);
+
+/**
+ * @brief Subtract the maximum value from a matrix
+ * @param matrix Matrix
+ */
+template <typename T>
+void subtractMatrixMaximum(std::vector<std::vector<T>>& matrix);
+
+/**
  * @brief Pad rectangle matrix to square
  * @param matrix Matrix
  * @param value Padding value

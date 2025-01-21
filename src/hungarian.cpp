@@ -9,6 +9,46 @@
 
 
 template <typename T>
+T globalMaximum(std::vector<std::vector<T>>& matrix)
+{
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+    T maximum = matrix[0][0];
+
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
+        {
+            if (matrix[i][j] > maximum)
+            {
+                maximum = matrix[i][j];
+            }
+        }
+    }
+
+    return maximum;
+}
+
+template <typename T>
+void subtractMatrixMaximum(std::vector<std::vector<T>>& matrix)
+{
+    if (matrix.empty()) return;
+
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+
+    T max = globalMaximum(matrix);
+
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
+        {
+            matrix[i][j] = max - matrix[i][j];
+        }
+    }
+}
+
+template <typename T>
 void padMatrix(std::vector<std::vector<T>>& matrix, const T& value)
 {
     if (matrix.empty()) return;
@@ -318,6 +358,11 @@ float hungarian(std::vector<std::vector<float>>& costMatrix, bool maximum, std::
     size_t rows = costMatrix.size();
     size_t columns = costMatrix[0].size();
     size_t paddedLength = MAX(rows, columns);
+
+    if (maximum)
+    {
+        subtractMatrixMaximum(costMatrix);
+    }
 
     // Pad if not square
     padMatrix(costMatrix, 0.0f);
